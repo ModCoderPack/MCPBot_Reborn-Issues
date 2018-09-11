@@ -5,15 +5,19 @@ In order to guarantee a consistent style and theme across MCP names, the followi
 should be adhered to when mapping new things or proposing replacements for existing mappings.
 Please refer to this document whenever you do not know how to format or structure a name.
 
-General Conventions
--------------------
- - If you do not know what to name something then *do not name it*. Let someone else name it.
- - All names use US spelling.
- - Names should reflect intent, *not* implementation.
+Getting Started
+---------------
+ - **If you do not know what to name something then *do not name it*. Let someone else do so.**
+ - Names should reflect intent, *not* implementation. Check usages rather than just looking at the definition.
  - Names should be concise and memorable. If information can be inferred from context (type, parameters etc.),
-   do not include it in the name.
+   do not include it in the name. This especially applies to fields and methods in a class, where you do not
+   need to have the class name in the member's name.
  - Prefer clarification in the documentation comment over verbose names. Conversely, do not give fields,
    methods, or method parameters useless comments.
+
+General
+-------
+ - All names use US spelling.
  - Acronyms should generally be written all-lowercase, while normal camel case rules still apply.
    For instance, "identifier" becomes `id` as standalone word or at the beginning of a camel case phrase and
    `Id` when used within a phrase.<br>
@@ -65,7 +69,7 @@ Method Names
 
 Method Parameter Names
 ----------------------
- - If a name clashes with that of a field or a type name, it should be prefixed with `in`
+ - If a name clashes with that of a field or a type name, it should be suffixed with `In`
  - Parameters of certain types should always get named according to the following list:
      - `BlockPos` arguments should be named `pos` when there is a single one, and `*Pos` when there are multiple
      - Parameters of the `IWorldReaderBase` and related type should be `worldIn`
