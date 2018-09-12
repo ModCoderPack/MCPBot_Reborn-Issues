@@ -8,16 +8,18 @@ Please refer to this document whenever you do not know how to format or structur
 Getting Started
 ---------------
  - **If you do not know what to name something then *do not name it*. Let someone else do so.**
- - Names should reflect intent, *not* implementation. Check usages rather than just looking at the definition.
+ - Names should reflect intent, *not* solely implementation. Check usages rather than looking only at the definition.
+   Also consider overrides and their context.
  - Names should be concise and memorable. If information can be inferred from context (type, parameters etc.),
    do not include it in the name. This especially applies to fields and methods in a class, where you do not
    need to have the defining class's name in the member's name.
  - Prefer clarification in the documentation comment over verbose names. Conversely, do not give fields,
-   methods, or method parameters useless comments.
+   methods, or method parameters needless comments that only repeat signature and name. Instead, use the documentation
+   for non-trivial examples or technical details.
 
 General
 -------
- - All names use US spelling.
+ - All names use American English spelling.
  - Acronyms should generally be written all-lowercase, while normal camel case rules still apply.
    For instance, "identifier" becomes `id` as standalone word or at the beginning of a camel case phrase and
    `Id` when used within a phrase.<br>
@@ -51,17 +53,20 @@ Field Names
 Method Names
 ------------
  - Method names should always start with a verb. Standard conventions for setters and getters apply.
- - Methods returning a `boolean` should have a name beginning with an appropriate prefix from the following list:
-     - `can` 
-     - `does`
-     - `has`
-     - `is`
-     - `should`
-     - `was`
+ - Getter-style methods returning a `boolean` should be named with a phrase that can be used
+   in a conditional (if) clause, i.e. some verb or adjective prefixed with some third person verb.
+   Common prefixes include `is`, `can`, `has`, and `contains`.
  - 'Event handling' methods should follow an `on<Noun>` theme where the noun is the event's name
    (with redundancies removed).
- - Methods which read or write NBT should be prefixed `read` and `write` respectively.
- - Methods which deseralize or serialize JSON should have a `deserialize` or `serialize` prefix accordingly. 
+ - Methods which store an object's state in a provided container should be prefixed with `write`.
+   This especially applies to methods that write to some NBT tag or the network buffer.
+ - Methods which retrieve an object's state from a provided container and apply it to an existing instance
+   should be prefixed with `read`. This especially applies to methods that read from an NBT tag or
+   the network buffer.
+ - Methods which convert an object's state into some storage format or reconstruct an object from a given
+   storage container should have a `deserialize` or `serialize` prefix accordingly.
+   This applies to methods that perform conversions from an object into JSON/NBT and back,
+   without manipulating some provided container or existing object instance.
 
 ### Examples
  - The method for handling block right clicks is called `onActivation` (noun form, no redundancy),
@@ -69,7 +74,8 @@ Method Names
 
 Method Parameter Names
 ----------------------
- - If a name clashes with that of a field or a type name, it should be suffixed with `In`
- - Parameters of certain types should always get named according to the following list:
-     - `BlockPos` arguments should be named `pos` when there is a single one, and `*Pos` when there are multiple
-     - Parameters of the `IWorldReaderBase` and related type should be `worldIn`
+ - If a name clashes with that of a field or a type name, it should be suffixed with `In`.
+ - Parameters of certain types should get named according to the following list:
+     - `BlockPos` arguments should be named `pos` when the usage is obvious and `<subject>Pos` when
+       there is ambiguity or multiple parameters.
+     - Parameters of the `IWorldReaderBase` and related types should be called `worldIn`.
