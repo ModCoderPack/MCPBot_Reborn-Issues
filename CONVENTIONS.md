@@ -11,7 +11,7 @@ Getting Started
  - Names should reflect intent, *not* implementation. Check usages rather than just looking at the definition.
  - Names should be concise and memorable. If information can be inferred from context (type, parameters etc.),
    do not include it in the name. This especially applies to fields and methods in a class, where you do not
-   need to have the class name in the member's name.
+   need to have the defining class's name in the member's name.
  - Prefer clarification in the documentation comment over verbose names. Conversely, do not give fields,
    methods, or method parameters useless comments.
 
@@ -40,7 +40,7 @@ Type Names
 do *not* fall under the suffix convention.
 
 ### Examples
- - For a new shelf block with an inventory, appropriate names would be `BlockShelf`, `ShelfTileEntity` and
+ - For a new shelf block with an inventory, appropriate names would be `BlockShelf`, `TileEntityShelf` and
    `ShelfContainer`.
 
 Field Names
