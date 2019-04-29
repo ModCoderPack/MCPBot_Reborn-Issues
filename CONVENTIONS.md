@@ -17,7 +17,7 @@ Getting Started
  - **If you do not know what to name something then *you SHOULD NOT name it*. Let someone else do so.**
  - Names SHOULD reflect intent, *not* solely implementation. Check usages rather than looking only at the definition.
    Also consider overrides and their context.
- - Names SHOULD be concise and memorable. If information can be inferred from context (type, parameters etc.),
+ - Names SHOULD be concise and memorable, while redundancies SHOULD be avoided. If information can be inferred from context (type, parameters etc.),
    do not include it in the name. This especially applies to fields and methods in a class, where you do not
    need to have the defining class's name in the member's name.
  - Clarification SHOULD preferably reside in the documentation comment, not in verbose names. Conversely, you SHOULD NOT give fields, methods, or method parameters needless comments that only repeat signature and name. Instead, use the documentation
@@ -34,7 +34,6 @@ General
      - named binary tags → `NBT`
      - red, green, blue (and alpha) color components → `RGB(A)`
      - universally unique identifiers: `UUID` → `UniqueId`
- - Redundancy SHOULD be avoided when possible. If part of a name can be inferred from the surrounding context (class, method, etc.), it SHOULD NOT be included.
 
 ### Examples
  - A class for RGB values SHOULD be called `RGBColor`, not `RgbColour`.
