@@ -6,6 +6,7 @@ import sys
 # Usage: python migrationMapGenerator.py <input.csv|input.tsrg> <output path>
 # Then, drop the resulting XML file into your Intellij migrations directory. 
 #   This is usually <USER FOLDER>/.IdeaIC2018.3/config/migrations/ or similar
+# On macOS, this is typically ~/Library/Preferences/IdeaIC2019.2/migration
 # Restart IntelliJ, then do Ctrl+Shift+A -> Migrate -> Select the XML -> Run -> Do refactor
 
 def main():
